@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 public class BannerApplication {
 
 	public static void main(String[] args) {
-		var ctx = SpringApplication.run(BannerApplication.class, args);
+		SpringApplication.run(BannerApplication.class);
 
-		MyFirstService myFristClass = ctx.getBean(MyFirstService.class);
-       System.out.println(myFristClass.tellStory());
+//		MyFirstService myFristClass = ctx.getBean(MyFirstService.class);
+//       System.out.println(myFristClass.tellStory());
 
 
 	}
