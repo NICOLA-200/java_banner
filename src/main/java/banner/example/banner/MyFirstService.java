@@ -18,6 +18,11 @@ public class MyFirstService {
 //        this.myFirstClass = myFristClass;
 //    }
 
+    @Autowired
+    public void  injectDependencies(MyFristClass myFristClass) {
+        this.myFirstClass = myFristClass;
+    }
+
 
 
 
