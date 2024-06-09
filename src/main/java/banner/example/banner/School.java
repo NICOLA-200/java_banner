@@ -1,6 +1,7 @@
 package banner.example.banner;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class School {
       mappedBy = "school",
       cascade = CascadeType.ALL
    )
+   @JsonManagedReference
    private List<Student> students;
 
     public String getName() {
