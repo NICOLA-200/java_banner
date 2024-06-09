@@ -11,6 +11,33 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    @ManyToOne
+    @JoinColumn(
+       name = "school_id"
+    )
+    private School school;
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
+    @OneToOne(
+       mappedBy = "student",
+       cascade = CascadeType.ALL
+    )
+    private StudentProfile studentProfile;
+
     public Student(String firstname, String lastname, String email, int age) {
 
         this.firstname = firstname;
