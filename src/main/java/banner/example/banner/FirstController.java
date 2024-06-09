@@ -3,8 +3,39 @@ package banner.example.banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class FirstController {
+
+    private final StudentRepository repository;
+
+    public FirstController(StudentRepository repository ) {
+        this.repository = repository;
+    }
+  // student persistencing
+    @PostMapping("/students")
+    public  Student post (@RequestBody Student student) {
+        return repository.save(student);
+    }
+
+    @GetMapping("/allStudends")
+    public List<Student> findAllStudent() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/students/{student-name}")
+    public  List<Student> findStudents(@PathVariable("student-name") String name) {
+        return repository.findAllByFirstnameContaining(name);
+    }
+
+    @GetMapping("/students/search/{student-id}")
+    public  Student searchStudent(@PathVariable("student-id") Integer id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    
+
 
 
     @GetMapping("/")
