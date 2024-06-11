@@ -15,10 +15,26 @@ public class StudentController {
     }
   // student persistencing
     @PostMapping("/students")
-    public  Student post (@RequestBody Student student) {
+    public  Student post (@RequestBody StudentDto dto) {
+
+        var student = toStudent(dto);
         return repository.save(student);
     }
 
+
+    private Student toStudent(StudentDto dto) {
+        var student = new Student();
+        student.setFirstname(dto.firstname());
+        student.setLastname(dto.lastname());
+        student.setEmail(dto.email());
+
+        var school = new School();
+        school.setId(dto.schoolId());
+
+        student.setSchool(school);
+
+        return  student;
+    }
     @GetMapping("/allStudends")
     public List<Student> findAllStudent() {
         return repository.findAll();
@@ -28,6 +44,7 @@ public class StudentController {
     public  List<Student> findStudents(@PathVariable("student-name") String name) {
         return repository.findAllByFirstnameContaining(name);
     }
+
 
     @GetMapping("/students/search/{student-id}")
     public  Student searchStudent(@PathVariable("student-id") Integer id) {
