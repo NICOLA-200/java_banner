@@ -14,8 +14,10 @@ public class SchoolController {
 
     private final  SchoolRepository schoolRepository;
 
+
     public  SchoolController(SchoolRepository schoolRepository) {
         this.schoolRepository = schoolRepository;
+
     }
 
     @PostMapping("/school")
