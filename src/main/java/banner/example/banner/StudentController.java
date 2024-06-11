@@ -15,10 +15,11 @@ public class StudentController {
     }
   // student persistencing
     @PostMapping("/students")
-    public  Student post (@RequestBody StudentDto dto) {
+    public  StudentResponseDto post (@RequestBody StudentDto dto) {
 
         var student = toStudent(dto);
-        return repository.save(student);
+        var savedStudent = repository.save(student);
+        return tostudentResponseDto(savedStudent);
     }
 
 
@@ -34,6 +35,15 @@ public class StudentController {
         student.setSchool(school);
 
         return  student;
+    }
+
+    private StudentResponseDto tostudentResponseDto(Student student) {
+
+        return  new StudentResponseDto(
+                student.getFirstname(),
+                student.getLastname(),
+                student.getEmail()
+                );
     }
     @GetMapping("/allStudends")
     public List<Student> findAllStudent() {
