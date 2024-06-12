@@ -1,6 +1,7 @@
-package banner.example.banner;
+package banner.example.banner.student;
 
 
+import banner.example.banner.school.School;
 import org.springframework.stereotype.Service;
 
 @Service

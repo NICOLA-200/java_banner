@@ -1,6 +1,10 @@
-package banner.example.banner;
+package banner.example.banner.student;
 
 
+import banner.example.banner.student.StudentDto;
+import banner.example.banner.student.StudentMapper;
+import banner.example.banner.student.StudentRepository;
+import banner.example.banner.student.StudentResponseDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 

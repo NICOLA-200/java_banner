@@ -1,4 +1,4 @@
-package banner.example.banner;
+package banner.example.banner.school;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @RestController
 public class SchoolController {
 
-    private final  SchoolRepository schoolRepository;
+    private final SchoolRepository schoolRepository;
 
 
     public  SchoolController(SchoolRepository schoolRepository) {

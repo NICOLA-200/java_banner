@@ -1,4 +1,4 @@
-package banner.example.banner;
+package banner.example.banner.school;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

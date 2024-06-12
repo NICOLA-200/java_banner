@@ -1,15 +1,21 @@
-package banner.example.banner;
+package banner.example.banner.student;
 
+import banner.example.banner.*;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
 public class StudentController {
 
 
-    private  final  StudentService studentService;
+    private  final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -18,7 +24,7 @@ public class StudentController {
 
     // student persistencing
     @PostMapping("/students")
-    public  StudentResponseDto saveStudent(@RequestBody StudentDto dto) {
+    public StudentResponseDto saveStudent(@Valid  @RequestBody StudentDto dto) {
 
      return  this.studentService.saveStudent(dto);
 
@@ -70,8 +76,6 @@ public class StudentController {
                               @RequestParam("lastname") String lastname ) {
         return "the request accepted and we have the following data :" + order.toString() + sender + " " + reciever + " " + lastname;
     }
-
-
 
 
 }

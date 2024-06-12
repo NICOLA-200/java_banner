@@ -1,6 +1,7 @@
-package banner.example.banner;
+package banner.example.banner.school;
 
 
+import banner.example.banner.student.Student;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
